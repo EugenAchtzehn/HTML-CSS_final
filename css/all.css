@@ -91,9 +91,6 @@ table {
 .clearfix{
 	clear: both;
 }
-.nav{
-	height: 70px;
-}
 
 .logo{
 	float: left;
@@ -110,23 +107,60 @@ table {
 	height: 36px;
 }
 
-.navList{
+.nav{
+	height: 60px;
+}
+
+.menu{
 	float: right;
+	text-align: center;
 }
 
-.navList > li{
-	float: left;
-	padding:  20px;
-}
-
-.navList li:hover{
-	border-bottom: 3px solid #00CC99;
-}
-
-.navList a{
-	text-decoration: none;
+.menu a{
 	color: #00CC99;
+	text-decoration: none;
 }
+
+.menu ul > li{
+	float: left;
+	padding: 20px;
+	width: 100px;
+	position: relative;
+}
+
+.menu ul > li:hover{
+	background: #00CC99;
+}
+/* 第一層li項目被掃到時，背景轉成綠色 */
+
+.menu ul > li:hover > a{
+	color: white;
+}
+/* 第一層li項目內被掃到時，內部的文字轉成白色 */
+
+.dropdownLi ul{
+	position: absolute;
+	left: 0;
+	top: 56px;
+	z-index: 15;
+	background: white;
+	display: none;
+}
+/* 第二層的ul設定，去抓第一層的li作為錨點，使用絕對定位，並用z設定讓其高於下面div，背景為白色，先隱藏 */
+
+.menu li li:hover a{
+	color: white;
+}
+/* 當第二層li被掃到時，其內部文字轉成白色 */
+
+.dropdownLi li:hover{
+	border-bottom: 3px solid brown;
+}
+
+.dropdownLi ul.active{
+	display: block;
+}
+/* 搭配js動畫，當ul轉為active時，就會出現 */
 
 .banner{
 	position: relative;
@@ -141,11 +175,17 @@ table {
 	padding: 20px;
 	position: absolute;
 	top: 200px;
+	z-index: 2;
 
 }
 
 .banner img{
 	width: 1080px;
+}
+
+.swiper-container {
+    width: 1080px;
+    height: 480px;
 }
 
 .course{
@@ -283,4 +323,28 @@ input{
 
 .contactUs span{
 	color: #e12d80;
+}
+
+.backBtn{
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 5px lightgray;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+
+}
+
+.backBtn a{
+	font-size: 30px;
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	color: lightgray;
+	opacity: 0.5;
+}
+
+.backBtn a:hover{
+	opacity: 1;
 }
