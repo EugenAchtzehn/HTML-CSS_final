@@ -48,13 +48,22 @@ table {
 }
 
 /* End of CSS Reset */
-*{
+
+
+*, *:before, *:after{
 	box-sizing: border-box;
 }
 
+img{
+	max-width: 100%;
+	height: auto;
+}
+/* important setting above */
+
 .wrap{
 	font-family: Arial, Helvetica, sans-serif;
-	width: 1080px;
+	max-width: 1080px;
+	/* responsive */
 	margin: 0 auto;
 }
 
@@ -62,7 +71,6 @@ table {
 	background: #f6f6f6;
 	color: blue;
 	height: 31px;
-	width: 1080px;
 }
 
 .socList{
@@ -108,7 +116,7 @@ table {
 }
 
 .nav{
-	height: 60px;
+	margin: 2px 0;
 }
 
 .menu{
@@ -153,8 +161,8 @@ table {
 }
 /* 當第二層li被掃到時，其內部文字轉成白色 */
 
-.dropdownLi li:hover{
-	border-bottom: 3px solid brown;
+.dropdownLi ul li:hover{
+	background: brown;
 }
 
 .dropdownLi ul.active{
@@ -165,41 +173,43 @@ table {
 .banner{
 	position: relative;
 	margin-bottom: 20px;
+	max-width: 1080px;
 }
 
-.banner h1{
-	font-size: 36px;
-	width: 1080px;
+.bannerText{
 	background: rgba(255, 255, 255, 0.15);
-	color: white;
-	padding: 20px;
+	z-index: 3;
 	position: absolute;
-	top: 200px;
-	z-index: 2;
+	top: 200px;	
+	width: 100%;
+}
 
+.bannerText h1{
+	font-size: 36px;
+	padding: 20px;	
+	color: white;
 }
 
 .banner img{
-	width: 1080px;
+	max-width: 1080px;
 }
 
 .swiper-container {
-    width: 1080px;
+    max-width: 1080px;
     height: 480px;
 }
 
 .course{
 	line-height: 1.5;
-	height: 400px;
 	margin-bottom: 20px;
 }
 
 .courseList > li{
-	width: 320px;
-	height: 350px;
+	width: 30%;
+	height: 380px;
 	float: left;
-	padding: 15px;
-	margin: 20px;
+	padding: 1.2%;
+	margin: 20px 1.5% 30px 1.5%;
 	box-shadow: 0 5px 5px lightgray;
 }
 
@@ -267,8 +277,8 @@ table {
 }
 
 #commentArea{
-	margin: 20px;
-	width: 500px;
+	margin: 20px 2%;
+	width: 46%;
 	height: 280px;
 	border-radius: 5px;
 }
@@ -279,7 +289,8 @@ table {
 
 .personInfo{
 	float: right;
-	margin: 20px 90px 0 0;
+	margin: 20px 8% 0 0;
+	width: 40%;
 }
 
 label{
@@ -290,7 +301,7 @@ label{
 }
 
 input{
-	width: 400px;
+	width: 100%;
 	padding: 3px;
 	border-radius: 5px;
 }
@@ -347,4 +358,77 @@ input{
 
 .backBtn a:hover{
 	opacity: 1;
+}
+
+/* CSS for tablet layout below */
+@media(max-width: 768px){
+
+	.logo{
+		float: none;
+		background-position: center;
+	}
+	/* logo置中 */
+
+	.menu{
+		float: none;
+		max-width: 768px;
+	}
+	.menu ul > li{
+		float: none;
+		padding: 0;
+		width: 100%;
+		/* li寬度擴增，要先讓.menu吃max-width設定，再設定其為100% */
+	}
+	.dropdownLi ul{
+		position: static;
+		background: white;
+		display: none;
+	}
+	.dropdownLi > a{
+		display: block;
+		padding: 20px 0;
+	}
+	.dropdownLi ul li{
+		padding: 20px 0;
+	}
+	.dropdownLi ul li:active{
+		background: brown;
+	}
+	/* 選單平板在寬度以下，變成單欄上下排列 */
+
+	.courseList > li{
+		width: 80%;
+		height: auto;
+		float: none;
+		margin: 15px auto;
+	}
+	.course{
+		margin-bottom: 30px;
+	}
+	/* 產品框隨文字自動下推 */
+
+	#commentArea{
+		margin: 20px 5%;
+		width: 90%;
+	}
+	.personInfo{
+		float: none;
+		margin: 10px 5%;
+		width: 90%;
+	}
+
+	.submitDiv{
+		padding: 30px 0 80px 0;
+	}
+	.submit{
+		height: 50px;
+		width: 100%;
+		position: static;
+	}
+
+
+}
+/* CSS for smartphone layout below */
+@media(max-width: 375px){
+
 }
